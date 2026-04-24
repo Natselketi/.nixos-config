@@ -7,8 +7,11 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   networking.hostName = "nakamura-nixos";
   networking.networkmanager.enable = true;
@@ -49,7 +52,29 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    extraConfig.pipewire."99-virtual-mic" = { # Virtual devices for AudioRelay
+      "context.modules" = [
+        {
+          name = "libpipewire-module-loopback";
+          args = {
+            "node.description" = "Virtual-Mic-Sink";
+            "capture.props" = {
+              "node.name" = "audiorelay-virtual-mic-sink";
+              "media.class" = "Audio/Sink";
+              "audio.position" = [ "FL" "FR" ];
+            };
+            "playback.props" = {
+              "node.name" = "audiorelay-virtual-mic-source";
+              "node.description" = "Virtual-Mic";
+              "media.class" = "Audio/Source";
+              "audio.position" = [ "FL" "FR" ];
+            };
+          };
+        }
+      ];
+    };
   };
+
 
   users.users.natselketi = {
     isNormalUser = true;
@@ -86,6 +111,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # Flakes
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
+
+    # Nix packages
     vim
     git
     wget
@@ -119,7 +148,6 @@
     bat
     gh
     distrobox
-    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
   ];
 
   services = {
@@ -190,6 +218,13 @@
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
+  };
+
+  # Firewall
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 29150 59100 ];
+    allowedUDPPorts = [ 29150 59100 59200 ];
   };
 
   # Mounts
