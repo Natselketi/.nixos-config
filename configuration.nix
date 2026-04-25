@@ -148,6 +148,8 @@
     bat
     gh
     distrobox
+    osu-lazer-bin
+    gamemode
   ];
 
   services = {
