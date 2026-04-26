@@ -184,37 +184,33 @@
     ratbagd.enable = true;
   };
 
-  # OpenGL
-  hardware.graphics = {
+  hardware = { # OpenGL
+    graphics = {
       enable = true;
       enable32Bit = true;
-  };
-
-  # NVIDIA
-
-  hardware.nvidia = {
-
-  modesetting.enable = true;
-  powerManagement = {
-    enable = false;
-    finegrained = false;
     };
-  open = true;
-  nvidiaSettings = true;
-  package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
+    nvidia = { # NVIDIA
 
-  # Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
+      modesetting.enable = true;
+      powerManagement = {
+        enable = false;
+        finegrained = false;
         };
-      Policy.AutoEnable = true;
+      open = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+    };
+    bluetooth = { # Bluetooth
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+          };
+        Policy.AutoEnable = true;
       };
+    };
   };
 
   # Waydroid
