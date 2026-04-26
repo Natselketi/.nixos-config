@@ -6,6 +6,8 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-audiorelay.url = "github:vleeuwenmenno/nix-audiorelay";
     heroic.url = "github:nixos/nixpkgs?ref=5a4bd9ef2d2b802304eb386e6f53026cc528382d";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    sls-steam = { url = "github:AceSLS/SLSsteam"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
   outputs = { self, nixpkgs, nixpkgs-master, ... }@inputs: {
       nixosConfigurations.nakamura-nixos = nixpkgs.lib.nixosSystem {

@@ -95,6 +95,11 @@
       protontricks.enable = true;
       gamescopeSession.enable = true;
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
+      package = (pkgs.millennium-steam.override {
+        extraEnv = {
+          LD_AUDIT = "${inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/library-inject.so:${inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/SLSsteam.so";
+          };
+        });
       };
     htop.enable = true;
     localsend = {
@@ -111,6 +116,7 @@
         config.allowUnfree = true;
       };
     })
+    inputs.millennium.overlays.default
   ];
 
   nix.settings = {
@@ -124,6 +130,7 @@
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
     pkgs-master.osu-lazer-bin
     inputs.heroic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.heroic
+    inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.wrapped
 
     # Nix packages
     vim
