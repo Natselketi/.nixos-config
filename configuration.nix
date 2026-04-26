@@ -104,6 +104,15 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      pkgs-master = import inputs.nixpkgs-master {
+        system = pkgs.stdenv.hostPlatform.system;
+        config.allowUnfree = true;
+      };
+    })
+  ];
+
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     substituters = ["https://nix-gaming.cachix.org"];
@@ -113,6 +122,8 @@
   environment.systemPackages = with pkgs; [
     # Flakes
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
+    pkgs-master.osu-lazer-bin
+    inputs.heroic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.heroic
 
     # Nix packages
     vim
@@ -120,7 +131,6 @@
     wget
     librewolf
     equibop
-    heroic
     prismlauncher
     fastfetch
     obs-studio
@@ -148,7 +158,6 @@
     bat
     gh
     distrobox
-    osu-lazer-bin
     gamemode
   ];
 
