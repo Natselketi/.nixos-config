@@ -111,7 +111,7 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      pkgs-master = import inputs.nixpkgs-master {
+      osu-lazer = import inputs.osu-lazer {
         system = pkgs.stdenv.hostPlatform.system;
         config.allowUnfree = true;
       };
@@ -128,8 +128,7 @@
   environment.systemPackages = with pkgs; [
     # Flakes
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
-    pkgs-master.osu-lazer-bin
-    inputs.heroic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.heroic
+    osu-lazer.osu-lazer-bin
     inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.wrapped
 
     # Nix packages
@@ -166,6 +165,7 @@
     gh
     distrobox
     gamemode
+    heroic
   ];
 
   services = {
@@ -190,7 +190,6 @@
       enable32Bit = true;
     };
     nvidia = { # NVIDIA
-
       modesetting.enable = true;
       powerManagement = {
         enable = false;

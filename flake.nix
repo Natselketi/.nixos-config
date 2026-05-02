@@ -2,21 +2,17 @@
   description = "A very basic flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-audiorelay.url = "github:vleeuwenmenno/nix-audiorelay";
-    heroic.url = "github:nixos/nixpkgs?ref=5a4bd9ef2d2b802304eb386e6f53026cc528382d";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     sls-steam = { url = "github:AceSLS/SLSsteam"; inputs.nixpkgs.follows = "nixpkgs"; };
+    osu-lazer.url = "github:nixos/nixpkgs?ref=7413e8c550bd4b196fb4d4ba39243efd10ae3d5e";
   };
-  outputs = { self, nixpkgs, nixpkgs-master, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: {
       nixosConfigurations.nakamura-nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
-          inputs.nix-audiorelay.nixosModules.audiorelay {programs.audiorelay.enable = true;}
         ];
     };
   };
 }
-
