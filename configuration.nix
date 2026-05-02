@@ -130,6 +130,7 @@
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
     osu-lazer.osu-lazer-bin
     inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.wrapped
+    nur.repos.zerozawa.mikusays
 
     # Nix packages
     vim
@@ -166,6 +167,8 @@
     distrobox
     gamemode
     heroic
+    ghostty
+    tmux
   ];
 
   services = {
