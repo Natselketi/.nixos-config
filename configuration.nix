@@ -52,26 +52,36 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    extraConfig.pipewire."99-virtual-mic" = { # Virtual devices for AudioRelay
-      "context.modules" = [
-        {
+    extraConfig.pipewire = {
+      "10-null-sink" = {  # Virtual devices for AudioRelay
+        "context.objects" = [ {
+          factory = "adapter";
+          args = {
+            "factory.name" = "support.null-audio-sink";
+            "node.name" = "audiorelay-virtual-mic-sink";
+            "node.description" = "Virtual Mic Sink";
+            "media.class" = "Audio/Sink";
+            "audio.position" = "FL,FR";
+          };
+        } ];
+      };
+      "20-virtual-mic" = {
+        "context.modules" = [ {
           name = "libpipewire-module-loopback";
           args = {
-            "node.description" = "Virtual-Mic-Sink";
             "capture.props" = {
-              "node.name" = "audiorelay-virtual-mic-sink";
-              "media.class" = "Audio/Sink";
-              "audio.position" = [ "FL" "FR" ];
+              "node.target" = "audiorelay-virtual-mic-sink";
             };
             "playback.props" = {
-              "node.name" = "audiorelay-virtual-mic-source";
-              "node.description" = "Virtual-Mic";
+              "node.name" = "audiorelay-virtual-mic";
+              "node.description" = "Virtual Mic";
               "media.class" = "Audio/Source";
-              "audio.position" = [ "FL" "FR" ];
+              "audio.position" = "FL,FR";
+              "node.passive" = true;
             };
           };
-        }
-      ];
+        } ];
+      };
     };
   };
 
@@ -131,6 +141,7 @@
     osu-lazer.osu-lazer-bin
     inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.wrapped
     nur.repos.zerozawa.mikusays
+    inputs.nix-audiorelay.packages.${pkgs.stdenv.hostPlatform.system}.audiorelay
 
     # Nix packages
     vim
