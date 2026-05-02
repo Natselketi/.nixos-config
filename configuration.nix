@@ -169,6 +169,9 @@
     heroic
     ghostty
     tmux
+    python314
+    pipx
+    wayvr
   ];
 
   services = {
