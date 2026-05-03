@@ -200,6 +200,11 @@
       openFirewall = true;
     };
     ratbagd.enable = true;
+    zerotierone = {
+      enable = true;
+      package = pkgs.zerotierone;
+      port = 9993;
+    };
   };
 
   hardware = { # OpenGL
@@ -254,8 +259,8 @@
   # Firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 29150 59100 ];
-    allowedUDPPorts = [ 29150 59100 59200 ];
+    allowedTCPPorts = [ 9993 29150 59100 ];
+    allowedUDPPorts = [ 9993 29150 59100 59200 ];
   };
 
   # Mounts
