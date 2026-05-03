@@ -142,6 +142,7 @@
     inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.wrapped
     nur.repos.zerozawa.mikusays
     inputs.nix-audiorelay.packages.${pkgs.stdenv.hostPlatform.system}.audiorelay
+    nur.repos.lonerOrz.helium
 
     # Nix packages
     vim
