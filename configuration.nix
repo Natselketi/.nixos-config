@@ -135,6 +135,13 @@
     trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
   };
 
+  environment.sessionVariables = rec {
+    XDG_CACHE_HOME  = "$HOME/.cache"; # XDG Base Directory Specification
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME   = "$HOME/.local/share";
+    XDG_STATE_HOME  = "$HOME/.local/state";
+  };
+
   environment.systemPackages = with pkgs; [
     # Flakes
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
@@ -184,6 +191,7 @@
     python314
     pipx
     wayvr
+    zulu21
   ];
 
   services = {
