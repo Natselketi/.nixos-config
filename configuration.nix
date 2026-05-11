@@ -192,6 +192,7 @@
     pipx
     wayvr
     zulu21
+    qbittorrent-enhanced
   ];
 
   services = {
