@@ -268,7 +268,7 @@
   # Firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 9993 29150 59100 ];
+    allowedTCPPorts = [ 9993 25565 29150 59100 ];
     allowedUDPPorts = [ 9993 29150 59100 59200 ];
   };
 
