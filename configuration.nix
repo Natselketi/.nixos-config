@@ -94,6 +94,15 @@
       kdePackages.kate
     ];
   };
+  system.userActivationScripts = {
+    linkProton = {
+      text= ''
+        mkdir -p /home/natselketi/.config/heroic/tools/proton/
+        ln -sfn ${pkgs.proton-ge-bin.steamcompattool} /home/natselketi/.config/heroic/tools/proton/GE-Proton-Latest
+        ln -sfn ${pkgs.nur.repos.forkprince.proton-ge-rtsp-bin.steamcompattool} /home/natselketi/.config/heroic/tools/proton/Proton-GE-RTSP
+      '';
+    };
+  };
 
   programs = {
     firefox.enable = true;
