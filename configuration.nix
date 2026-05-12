@@ -162,7 +162,7 @@
     obs-studio
     p7zip
     vlc
-    wineWow64Packages.stable
+    wineWow64Packages.stableFull
     winetricks
     protonplus
     file
