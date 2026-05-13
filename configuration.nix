@@ -125,6 +125,11 @@
       enable = true;
       openFirewall = true;
       };
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        ];
+      };
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -202,6 +207,8 @@
     wayvr
     zulu21
     qbittorrent-enhanced
+    yt-dlp
+    ffmpeg
   ];
 
   services = {
