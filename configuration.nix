@@ -209,6 +209,7 @@
     qbittorrent-enhanced
     yt-dlp
     ffmpeg
+    (discord.override { equicord = nur.repos.forkprince.equicord; withEquicord = true; })
   ];
 
   services = {
