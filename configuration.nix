@@ -114,11 +114,12 @@
       protontricks.enable = true;
       gamescopeSession.enable = true;
       extraCompatPackages = with pkgs; [ proton-ge-bin nur.repos.forkprince.proton-ge-rtsp-bin ];
-      package = (pkgs.millennium-steam.override {
-        extraEnv = {
-          LD_AUDIT = "${inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/library-inject.so:${inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/SLSsteam.so";
-          };
-        });
+      package = pkgs.millennium-steam;
+     # package = (pkgs.millennium-steam.override {
+     #   extraEnv = {
+     #     LD_AUDIT = "${inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/library-inject.so:${inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/SLSsteam.so";
+     #     };
+     #   });
       };
     htop.enable = true;
     localsend = {
