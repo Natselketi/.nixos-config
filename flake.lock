@@ -51,24 +51,6 @@
         "type": "github"
       }
     },
-    "enter-the-wired": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1778936737,
-        "narHash": "sha256-88JZ7hRnKmR9aeVKNbOBkN43qX6mqqcVVLEP4bgN86Q=",
-        "owner": "ciscosweater",
-        "repo": "enter-the-wired",
-        "rev": "0ac4cb2e768935d83fb71e20b79066ff520f6234",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ciscosweater",
-        "repo": "enter-the-wired",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -322,7 +304,7 @@
         "minhook-src": "minhook-src",
         "mini-src": "mini-src",
         "minizip-src": "minizip-src",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "re2-src": "re2-src",
         "websocketpp-src": "websocketpp-src",
         "zlib-src": "zlib-src"
@@ -416,7 +398,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1772268410,
@@ -436,7 +418,7 @@
       "inputs": {
         "flake-parts": "flake-parts_2",
         "git-hooks": "git-hooks",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1778730790,
@@ -454,17 +436,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1772963539,
-        "narHash": "sha256-9jVDGZnvCckTGdYT53d/EfznygLskyLQXYwJLKMPsZs=",
-        "owner": "NixOS",
+        "lastModified": 1770115704,
+        "narHash": "sha256-KHFT9UWOF2yRPlAnSXQJh6uVcgNcWlFqqiAZ7OVlHNc=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9dcb002ca1690658be4a04645215baea8b95f31d",
+        "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
-        "rev": "9dcb002ca1690658be4a04645215baea8b95f31d",
         "type": "github"
       }
     },
@@ -500,22 +482,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1770115704,
-        "narHash": "sha256-KHFT9UWOF2yRPlAnSXQJh6uVcgNcWlFqqiAZ7OVlHNc=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1770197578,
         "narHash": "sha256-AYqlWrX09+HvGs8zM6ebZ1pwUqjkfpnv8mewYwAo+iM=",
         "owner": "NixOS",
@@ -530,7 +496,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1778274207,
         "narHash": "sha256-I4puXmX1iovcCHZlRmztO3vW0mAbbRvq4F8wgIMQ1MM=",
@@ -546,7 +512,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1778869304,
         "narHash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE=",
@@ -570,11 +536,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778956321,
-        "narHash": "sha256-IqbvAIwzMmnjpeYmqAC8gOlAZNc5EKk1OGi5znjEcn4=",
+        "lastModified": 1778963086,
+        "narHash": "sha256-Z6IfZ5/cWneY9XtLiMnrEr6zyCbBjKXOEUygl2AD3Rw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c0e79cbddfd64cc0ae0e6a6321d08599382c366f",
+        "rev": "03f1c0d148c7136189cfacc449b7337ea7b3c381",
         "type": "github"
       },
       "original": {
@@ -618,11 +584,10 @@
     },
     "root": {
       "inputs": {
-        "enter-the-wired": "enter-the-wired",
         "millennium": "millennium",
         "nix-audiorelay": "nix-audiorelay",
         "nix-gaming": "nix-gaming",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_4",
         "nur": "nur",
         "osu-lazer": "osu-lazer",
         "sls-steam": "sls-steam"

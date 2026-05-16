@@ -217,6 +217,7 @@
     yt-dlp
     ffmpeg
     (discord.override { equicord = nur.repos.forkprince.equicord; withEquicord = true; })
+    sgdboop
   ];
 
   services = {
