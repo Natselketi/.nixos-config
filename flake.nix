@@ -8,6 +8,7 @@
     osu-lazer.url = "github:nixos/nixpkgs?ref=7413e8c550bd4b196fb4d4ba39243efd10ae3d5e";
     nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "nixpkgs"; };
     nix-audiorelay.url = "github:WiredMic/nix-audiorelay";
+    forkprince = { url = "github:ForkPrince/nur-packages"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
   outputs = { self, nixpkgs, nur, ... }@inputs: {
       nixosConfigurations.nakamura-nixos = nixpkgs.lib.nixosSystem {

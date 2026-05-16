@@ -159,6 +159,26 @@
         "type": "github"
       }
     },
+    "forkprince": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778922064,
+        "narHash": "sha256-dEoTaeq91CtQj/YFPm/+mxbuoDWUVwtJR8KAAXJ28SM=",
+        "owner": "ForkPrince",
+        "repo": "nur-packages",
+        "rev": "748e0c341a4d165fdc958f7675993400e679ecbb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ForkPrince",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -584,6 +604,7 @@
     },
     "root": {
       "inputs": {
+        "forkprince": "forkprince",
         "millennium": "millennium",
         "nix-audiorelay": "nix-audiorelay",
         "nix-gaming": "nix-gaming",

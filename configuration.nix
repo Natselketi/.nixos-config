@@ -97,9 +97,9 @@
   system.userActivationScripts = {
     linkProton = {
       text= ''
-        mkdir -p /home/natselketi/.config/heroic/tools/proton/
-        ln -sfn ${pkgs.proton-ge-bin.steamcompattool} /home/natselketi/.config/heroic/tools/proton/GE-Proton-Latest
-        ln -sfn ${pkgs.nur.repos.forkprince.proton-ge-rtsp-bin.steamcompattool} /home/natselketi/.config/heroic/tools/proton/Proton-GE-RTSP
+        mkdir -p $HOME/.config/heroic/tools/proton/
+        ln -sfn ${pkgs.proton-ge-bin.steamcompattool} $HOME/.config/heroic/tools/proton/GE-Proton-Latest
+        ln -sfn ${pkgs.nur.repos.forkprince.proton-ge-rtsp-bin.steamcompattool} $HOME/.config/heroic/tools/proton/Proton-GE-RTSP
       '';
     };
   };
@@ -113,7 +113,7 @@
       localNetworkGameTransfers.openFirewall = true;
       protontricks.enable = true;
       gamescopeSession.enable = true;
-      extraCompatPackages = with pkgs; [ proton-ge-bin nur.repos.forkprince.proton-ge-rtsp-bin ];
+      extraCompatPackages = with pkgs; [ proton-ge-bin forkprince.proton-ge-rtsp-bin ];
       package = pkgs.millennium-steam;
      # package = (pkgs.millennium-steam.override {
      #   extraEnv = {
@@ -140,6 +140,9 @@
         system = pkgs.stdenv.hostPlatform.system;
         config.allowUnfree = true;
       };
+      forkprince = import inputs.forkprince {
+        pkgs = prev;
+      };
     })
     inputs.millennium.overlays.default
   ];
@@ -149,10 +152,12 @@
     substituters = [
       "https://nix-gaming.cachix.org"
       "https://cache.nixos-cuda.org"
+      "https://forkprince.cachix.org"
     ];
     trusted-public-keys = [
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      "forkprince.cachix.org-1:9cN+fX492ZKlfd228xpYAC3T9gNKwS1sZvCqH8iAy1M="
     ];
   };
 
@@ -171,6 +176,8 @@
     nur.repos.zerozawa.mikusays
     inputs.nix-audiorelay.packages.${pkgs.stdenv.hostPlatform.system}.audiorelay
     nur.repos.lonerOrz.helium
+    forkprince.heroic
+
 
     # Nix packages
     vim
@@ -206,7 +213,6 @@
     gh
     distrobox
     gamemode
-    heroic
     ghostty
     tmux
     python314
@@ -216,7 +222,7 @@
     qbittorrent-enhanced
     yt-dlp
     ffmpeg
-    (discord.override { equicord = nur.repos.forkprince.equicord; withEquicord = true; })
+    (discord.override { equicord = forkprince.equicord; withEquicord = true; })
     sgdboop
   ];
 
