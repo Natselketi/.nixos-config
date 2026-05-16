@@ -221,6 +221,10 @@
       openFirewall = true;
       autoStart = true;
       package = (pkgs.wivrn.override { cudaSupport = true; });
+      steam = {
+        enable = true;
+        importOXRRuntimes = true;
+      };
     };
     qbittorrent = {
       enable = true;
