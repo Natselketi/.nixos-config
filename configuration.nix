@@ -176,8 +176,6 @@
     nur.repos.zerozawa.mikusays
     inputs.nix-audiorelay.packages.${pkgs.stdenv.hostPlatform.system}.audiorelay
     nur.repos.lonerOrz.helium
-    forkprince.heroic
-
 
     # Nix packages
     vim
@@ -224,6 +222,7 @@
     ffmpeg
     (discord.override { equicord = forkprince.equicord; withEquicord = true; })
     sgdboop
+    heroic
   ];
 
   services = {
